@@ -1,0 +1,9 @@
+.cell{
+    height:10px;
+    width:10px;
+    border:1px black solid;
+    float: left;
+}
+.board {
+    display: grid;
+}
