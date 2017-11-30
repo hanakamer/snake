@@ -1,3 +1,6 @@
+#container {
+    background: black;
+}
 .cell{
     height:10px;
     width:10px;
@@ -6,4 +9,36 @@
 }
 .board {
     display: grid;
+    border:3px solid white;
+}
+
+.snake {
+    background: red;
+    animation-duration: 400ms;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.apple.purple {
+    background: #a50fef;
+}
+.apple.pink {
+    background: #f90f6e;
+}
+.apple.orange {
+    background: #f5882c;
+}
+.apple.green {
+    background: #63da47;
+}
+#color {
+    height:50px;
 }

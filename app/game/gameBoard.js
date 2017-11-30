@@ -5,22 +5,20 @@ export function createGrid(x,y){
     container.appendChild(board);
     for (let i = 0; i <x*y; i++){
         let cell = document.createElement ('div');
+        let rowNum =  parseInt(i/x,10);
+        let cellNum = parseInt(i%y, 10);
         cell.className = 'cell';
         if(i%x ==0){
             let row = document.createElement ('div');
-            row.id = 'row'+i/x;
+            row.id = 'row'+ rowNum;
             row.className = 'row';
             row.appendChild(cell)
-            console.log('row'+ i/x);
             board.appendChild(row);
         }else{
             let rowId = 'row' + parseInt(i/x,10);
-            console.log(rowId);
-            debugger;
             let row = document.getElementById(rowId);
             row.appendChild(cell);
         }
-
+        cell.id = rowNum + ',' + cellNum;
     };
-
 }
