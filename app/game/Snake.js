@@ -1,6 +1,7 @@
-export function Snake(row,col){
+export function Snake(row,col, boardName){
     window.addEventListener('keydown', function(e) {return that.turn(e)});
     let that = this;
+    this.alive = true;
     this.points = 0;
     this.position ={
          x:col,
@@ -13,7 +14,7 @@ export function Snake(row,col){
 
      this.drawSnake = function(){
          if(this.snakeBody.length > 0 ){
-             let cellId = this.snakeBody[this.snakeBody.length-1].y + ',' + this.snakeBody[this.snakeBody.length-1].x;
+             let cellId = boardName + '-' + this.snakeBody[this.snakeBody.length-1].y + ',' + this.snakeBody[this.snakeBody.length-1].x;
              let lastPixel = document.getElementById(cellId);
              lastPixel.classList.remove('snake');
              this.snakeBody.splice(-1,1);
@@ -23,7 +24,7 @@ export function Snake(row,col){
              y:this.position.y
          })
          this.snakeBody.map((pixel)=>{
-             let cellId = pixel.y + ',' + pixel.x;
+             let cellId = boardName + '-' + pixel.y + ',' + pixel.x;
              pixel = document.getElementById(cellId);
              pixel.classList.add('snake');
          })
@@ -60,6 +61,7 @@ export function Snake(row,col){
      }
 
      this.move = function(){
+
          switch(this.direction) {
              case 1:
                  this.position.x += 1;
@@ -68,27 +70,34 @@ export function Snake(row,col){
                  this.position.y += 1;
                  break;
              case 3:
+
                  this.position.x -= 1;
                  break;
+
+
              case 4:
                  this.position.y -= 1;
                  break;
          }
-         let cellId = this.position.y + ',' + this.position.x;
+         let cellId =boardName + '-' + this.position.y + ',' + this.position.x;
          this.snakeCell = document.getElementById(cellId);
+         if(this.snakeCell.classList.contains('snake')){
+             this.dead();
+         }
          let appleColor = window.getComputedStyle(this.snakeCell,null).getPropertyValue('background-color');
-         let colorIndicator = document.getElementById('color').style.backgroundColor;
+         let colorIndicator = document.getElementById('app-container').style.borderColor;
 
          if(this.snakeCell.classList.contains('apple')){
              if(appleColor == colorIndicator){
                  this.points +=50;
                  this.addPixel();
+                 this.removeRow(this.snakeCell.classList[2])
              }else{
                  this.points +=10;
              }
              this.snakeCell.classList.remove('apple');
              let score = document.getElementById('score');
-             score.innerHTML = this.points;
+             score.innerHTML = 'SCORE: '+ this.points;
 
          }
          if(this.snakeCell.classList.contains('snake')){
@@ -115,6 +124,17 @@ export function Snake(row,col){
     }
 
     this.dead = function (){
-         console.log('game over');
+         this.alive = false;
+        let alert = document.getElementById('score');
+        alert.innerHTML = 'GAME OVER'
+    }
+
+    this.removeRow = function(color){
+        let board = document.getElementById('wall-board');
+        let row = document.getElementsByClassName('row '+color)[0];
+        if(row){
+            board.removeChild(row);
+        }
+
     }
 }

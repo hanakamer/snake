@@ -3,15 +3,20 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="app/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <title>snake</title>
 </head>
 <body>
-<div id="app">
+<div id="app-container">
     <h1>snake game</h1>
-    <div id="container">
-        <p id="score"></p>
-        <p id="color"></p>
+    <p id="score">SCORE: 0</p>
+    <p id="color"></p>
+    <div class="clear"></div>
+    <div id="game-container">
     </div>
+    <div id="wall-container">
+    </div>
+    <div class="clear"></div>
 </div>
 <script src="./build/bundle.js"></script>
 </body>

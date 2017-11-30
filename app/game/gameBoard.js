@@ -1,5 +1,6 @@
-export function createGrid(x,y){
-    let container = document.getElementById('container');
+export function createGrid(x,y,name){
+    let container = document.getElementById(name+'-container');
+
     let board = document.createElement('div');
     board.className = 'board';
     container.appendChild(board);
@@ -10,15 +11,15 @@ export function createGrid(x,y){
         cell.className = 'cell';
         if(i%x ==0){
             let row = document.createElement ('div');
-            row.id = 'row'+ rowNum;
+            row.id =name + '-' + 'row'+ rowNum;
             row.className = 'row';
             row.appendChild(cell)
             board.appendChild(row);
         }else{
-            let rowId = 'row' + parseInt(i/x,10);
+            let rowId =name + '-'+ 'row' + parseInt(i/x,10);
             let row = document.getElementById(rowId);
             row.appendChild(cell);
         }
-        cell.id = rowNum + ',' + cellNum;
+        cell.id =name + '-' + rowNum + ',' + cellNum;
     };
 }

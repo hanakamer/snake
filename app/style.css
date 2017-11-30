@@ -1,5 +1,16 @@
-#container {
+#app-container{
+    margin: 0 150px;
     background: black;
+    border: 10px solid #f90f6e;
+}
+#game-container {
+    background: black;
+}
+#wall-container .board{
+    float: right;
+}
+#game-container .board{
+    float: left;
 }
 .cell{
     height:10px;
@@ -9,8 +20,8 @@
 }
 .board {
     display: grid;
-    border:3px solid white;
 }
+
 
 .snake {
     background: red;
@@ -39,6 +50,34 @@
 .apple.green {
     background: #63da47;
 }
+
+
+.row.purple {
+    background: #a50fef;
+}
+.row.pink {
+    background: #f90f6e;
+}
+.row.orange {
+    background: #f5882c;
+}
+.row.green {
+    background: #63da47;
+}
 #color {
-    height:50px;
+    height: 50px;
+    width: 50px;
+    float: right;
+}
+#score{
+    margin:0;
+    height: 45px;
+    color: #f90f6e;
+    text-align: center;
+    font-size: 40px;
+    line-height: 45px;
+    font-family: 'Quicksand', sans-serif;
+}
+.clear{
+    clear: both;
 }

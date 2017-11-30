@@ -1,10 +1,10 @@
-export function Apple(x, y, color){
+export function Apple(x, y, color, boardName){
     this.position = {
         x:x,
         y:y
     }
 
-    let cellId = this.position.y + ',' + this.position.x;
+    let cellId = boardName + '-' + this.position.y + ',' + this.position.x;
     this.appleCell = document.getElementById(cellId);
 
     this.drawApple = function (){
