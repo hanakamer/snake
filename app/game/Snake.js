@@ -1,17 +1,15 @@
-export function Snake(row,col, boardName){
+export function Snake(row,col, boardName, gameType){
     window.addEventListener('keydown', function(e) {return that.turn(e)});
     let that = this;
     this.alive = true;
     this.points = 0;
+    this.ate = false;
     this.position ={
          x:col,
          y:row
      }
-
     this.direction = 1;
     this.snakeBody= [];
-
-
      this.drawSnake = function(){
          if(this.snakeBody.length > 0 ){
              let cellId = boardName + '-' + this.snakeBody[this.snakeBody.length-1].y + ',' + this.snakeBody[this.snakeBody.length-1].x;
@@ -88,20 +86,25 @@ export function Snake(row,col, boardName){
          let colorIndicator = document.getElementById('app-container').style.borderColor;
 
          if(this.snakeCell.classList.contains('apple')){
-             if(appleColor == colorIndicator){
+             if(appleColor == colorIndicator &&
+                gameType == "wall"
+             ){
+                 debugger;
                  this.points +=50;
                  this.addPixel();
                  this.removeRow(this.snakeCell.classList[2])
              }else{
+                 debugger;
                  this.points +=10;
+                 if(gameType == "classic"){
+                     this.addPixel();
+                     this.ate = true;
+                 }
              }
              this.snakeCell.classList.remove('apple');
              let score = document.getElementById('score');
              score.innerHTML = 'SCORE: '+ this.points;
 
-         }
-         if(this.snakeCell.classList.contains('snake')){
-             this.dead();
          }
 
          this.drawSnake();

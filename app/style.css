@@ -25,10 +25,10 @@
 
 .snake {
     background: red;
-    animation-duration: 400ms;
-    animation-name: blink;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    /*animation-duration: 400ms;*/
+    /*animation-name: blink;*/
+    /*animation-iteration-count: infinite;*/
+    /*animation-direction: alternate;*/
 }
 @keyframes blink {
     from {
