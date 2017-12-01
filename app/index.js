@@ -1,2 +1,2 @@
 import * as game from './game/play';
-game.Game();
+game.Game('wall');
