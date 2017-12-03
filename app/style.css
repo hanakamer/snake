@@ -1,7 +1,11 @@
 #app-container{
-    margin: 0 150px;
+    margin: 0 auto;
     background: black;
     border: 10px solid #f90f6e;
+    width:600px;
+    height:525px;
+    position: relative;
+    font-family: 'Quicksand', sans-serif;
 }
 #game-container {
     background: black;
@@ -64,11 +68,6 @@
 .row.green {
     background: #63da47;
 }
-#color {
-    height: 50px;
-    width: 50px;
-    float: right;
-}
 #score{
     margin:0;
     height: 45px;
@@ -76,8 +75,20 @@
     text-align: center;
     font-size: 40px;
     line-height: 45px;
-    font-family: 'Quicksand', sans-serif;
 }
 .clear{
     clear: both;
+}
+#restart-popup{
+    width:200px;
+    height: 200px;
+    position: absolute;
+    top:150px;
+    left: 205px;
+    background: darkslategray;
+    display: none;
+    text-align: center;
+}
+.popup-text{
+    font-size: 36px;
 }

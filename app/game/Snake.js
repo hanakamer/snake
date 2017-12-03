@@ -10,6 +10,7 @@ export function Snake(row,col, boardName, gameType){
      }
     this.direction = 1;
     this.snakeBody= [];
+    document.getElementById('score').innerHTML = 'SCORE: ' + this.points;
      this.drawSnake = function(){
          if(this.snakeBody.length > 0 ){
              let cellId = boardName + '-' + this.snakeBody[this.snakeBody.length-1].y + ',' + this.snakeBody[this.snakeBody.length-1].x;
@@ -68,11 +69,8 @@ export function Snake(row,col, boardName, gameType){
                  this.position.y += 1;
                  break;
              case 3:
-
                  this.position.x -= 1;
                  break;
-
-
              case 4:
                  this.position.y -= 1;
                  break;
@@ -89,12 +87,10 @@ export function Snake(row,col, boardName, gameType){
              if(appleColor == colorIndicator &&
                 gameType == "wall"
              ){
-                 debugger;
                  this.points +=50;
                  this.addPixel();
                  this.removeRow(this.snakeCell.classList[2])
              }else{
-                 debugger;
                  this.points +=10;
                  if(gameType == "classic"){
                      this.addPixel();

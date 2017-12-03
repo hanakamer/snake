@@ -5,7 +5,6 @@ import * as CreateWall from './Wall';
 
 export function Game(gameType){
 
-
     let board_width = 40;
     let board_height = 40;
     let gameOn = true;
@@ -34,11 +33,18 @@ export function Game(gameType){
                 createApple(that.snake);
             }
         }else{
+
+            if( that.snake.alive){
+                window.alert('you hit the wall');
+            }else{
+                window.alert('you hit yourself');
+            }
             gameOver();
             gameOn = false;
 
+
         }
-    }, 200);
+    }, 100);
 
 
 
@@ -56,16 +62,6 @@ export function Game(gameType){
             addRow(this.wall);
         },2500);
     }
-
-    function gameOver() {
-        that.snake.dead();
-        window.clearInterval(that.wallInterval);
-        window.clearInterval(that.snakeInterval);
-        window.clearInterval(that.colorInterval);
-        window.clearInterval(that.appleInterval);
-
-
-    }
     function createApple(snake){
         let ranX = Math.floor(Math.random() * board_width);
         let ranY = Math.floor(Math.random() * board_height);
@@ -78,6 +74,7 @@ export function Game(gameType){
             apple.drawApple();
             snake.ate = false;
         }else{
+            debugger;
             gameOver();
         }
     }
@@ -90,12 +87,29 @@ export function Game(gameType){
     function addRow(wall){
         if(gameOn){
             let randomColorIndex = Math.floor(Math.random() * colors.length);
-            let colorName  = Object.keys(colors[randomColorIndex])[0]
+            let colorName  = Object.keys(colors[randomColorIndex])[0];
             gameOn = wall.addRow(colorName);
         }else{
+            window.alert('the bar is full');
             gameOver();
         }
     }
+    function gameOver() {
+        that.snake.dead();
+        resetIntervals();
+        let popup = document.getElementById('restart-popup');
+        popup.children[0].innerHTML = 'SCORE: '+ that.snake.points;
+        popup.style.display='block';
+
+
+    }
+     function resetIntervals (){
+        window.clearInterval(that.wallInterval);
+        window.clearInterval(that.snakeInterval);
+        window.clearInterval(that.colorInterval);
+        window.clearInterval(that.appleInterval);
+    }
+
 
 }
 

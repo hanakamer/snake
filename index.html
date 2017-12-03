@@ -8,15 +8,19 @@
 </head>
 <body>
 <div id="app-container">
-    <h1>snake game</h1>
     <p id="score">SCORE: 0</p>
-    <p id="color"></p>
     <div class="clear"></div>
     <div id="game-container">
     </div>
     <div id="wall-container">
     </div>
     <div class="clear"></div>
+    <div id="restart-popup">
+        <p class="popup-text">
+            SCORE: 0
+        </p>
+        <button onclick="restart()">restart</button>
+    </div>
 </div>
 <script type="text/javascript" src="./dist/bundle.js"></script>
 </body>
