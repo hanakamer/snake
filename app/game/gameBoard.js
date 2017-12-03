@@ -2,7 +2,8 @@ export function createGrid(x,y,name){
     let container = document.getElementById(name+'-container');
 
     let board = document.createElement('div');
-    board.className = 'board';
+    board.className = name+'-board';
+    board.classList.add('board');
     container.appendChild(board);
     for (let i = 0; i <x*y; i++){
         let cell = document.createElement ('div');
