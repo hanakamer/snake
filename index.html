@@ -15,11 +15,19 @@
     <div id="wall-container">
     </div>
     <div class="clear"></div>
-    <div id="restart-popup">
+    <div class="popup" id="restart-popup">
         <p class="popup-text">
             SCORE: 0
         </p>
-        <button onclick="restart()">restart</button>
+        <button class="btn" onclick="start('classic')">classic</button>
+        <button class="btn" onclick="start('wall')">wall</button>
+    </div>
+    <div  class="popup" id="start-popup">
+        <p class="popup-text">
+            choose your game style
+        </p>
+        <button class="btn" onclick="start('classic')">classic</button>
+        <button class="btn" onclick="start('wall')">wall</button>
     </div>
 </div>
 <script src="./build/bundle.js"></script>

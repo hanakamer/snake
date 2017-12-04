@@ -1,5 +1,12 @@
 import * as game from './game/play';
-game.Game('wall');
+
+
+window.start = function start(gameType){
+    resetGame();
+    game.Game(gameType);
+    document.getElementById('start-popup').style.display='none';
+    document.getElementById('restart-popup').style.display='none';
+}
 window.restart = function restart(){
     document.getElementById('restart-popup').style.display='none';
     resetGame();
@@ -18,3 +25,4 @@ function deleteBoard(boardName){
         container.removeChild(board);
     }
 }
+

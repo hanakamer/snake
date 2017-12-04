@@ -10,7 +10,7 @@ export function Brick(x,y,boardName){
 
     this.addRow =function(color){
         let counter = board.childElementCount;
-       if (counter<y+1){
+       if (counter<y){
            let row = document.createElement ('div');
            row.className = 'row';
            row.id = boardName + '-' + 'row'+ this.counter;
