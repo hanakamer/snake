@@ -2,19 +2,24 @@
     margin: 0 auto;
     background: black;
     border: 10px solid #f90f6e;
-    width:600px;
-    height:525px;
+    width:530px;
+    height:526px;
     position: relative;
     font-family: 'Quicksand', sans-serif;
 }
 #game-container {
     background: black;
 }
+.board{
+    border-top: 1px dashed darkcyan;
+}
 #wall-container .board{
     float: right;
+
 }
 #game-container .board{
     float: left;
+    border-right: 1px dashed darkcyan;
 }
 .cell{
     height:10px;
@@ -84,7 +89,7 @@
     height: 200px;
     position: absolute;
     top:150px;
-    left: 205px;
+    left: 165px;
     background: darkslategray;
     display: none;
     text-align: center;
